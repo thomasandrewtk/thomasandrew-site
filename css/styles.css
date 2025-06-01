@@ -1,20 +1,33 @@
 /* 
  * Thomas Andrew - Personal Website
- * Styled after chrisraroque.com
+ * Styled after Apple Reminders UI
  */
 
 /* CSS Variables */
 :root {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
+  --bg-color: #1C1C1E; /* Apple dark mode background */
+  --text-color: #ffffff; /* Primary white text */
+  --text-secondary: #8E8E93; /* Notes text color (R 142 G 142 B 147) */
   --text-tertiary: rgba(255, 255, 255, 0.5);
-  --accent-color: #0a84ff;
+  --accent-color: #0A84FF; /* Apple blue (R 10 G 132 B 255) */
+  --divider-color: rgba(255, 255, 255, 0.2); /* Subtle divider */
   --content-max-width: 700px;
   --spacing-sm: 8px;
-  --spacing-md: 20px;
-  --spacing-lg: 40px;
-  --spacing-xl: 60px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-circle: 50%;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-size-small: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-title: 1.75rem;
+  --font-size-section: 1.25rem;
+  --font-size-subtitle: 1.125rem;
 }
 
 /* Base Styles */
@@ -29,24 +42,43 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.5;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 60px 20px;
-  text-align: center;
+  padding: 0;
+  text-align: left;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
   opacity: 0.8;
+}
+
+h1, h2, h3 {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: var(--font-size-title);
+}
+
+h2 {
+  font-size: var(--font-size-section);
+  color: var(--text-color);
 }
 
 /* Layout */
@@ -55,77 +87,205 @@ a:hover {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-/* Profile Header */
-.profile-header {
-  margin-bottom: var(--spacing-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-h1 {
-  font-size: 1.8rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-left: 10px;
-}
-
-/* Statements */
-.statement {
-  margin-bottom: var(--spacing-lg);
-  text-align: center;
+  padding: 0 var(--spacing-md);
   width: 100%;
 }
 
-.statement p {
-  font-size: 1.6rem;
-  line-height: 1.4;
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: var(--divider-color);
+  width: 100%;
+  margin: var(--spacing-sm) 0;
+}
+
+/* Profile Header - Apple Account Style */
+.profile-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  position: relative;
 }
 
-.icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  margin-left: 10px;
-  vertical-align: middle;
+.profile-image {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-circle);
+  object-fit: cover;
+  margin-right: var(--spacing-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--accent-color);
 }
 
-/* Social Icons */
-.social-icons {
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h1 {
+  margin-bottom: 2px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.profile-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.3;
+}
+
+/* Optional wave emoji for the title */
+.wave-emoji {
+  display: inline-block;
+  margin-left: 6px;
+  animation: wave 1.5s ease-in-out 2;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(20deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(20deg); }
+  80% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Section Styles */
+.section {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: var(--font-size-section);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 4px;
+  color: var(--text-color);
+  position: relative;
+  padding-left: 4px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--divider-color);
+  transform: scaleY(0.5);
+}
+
+/* Reminder Styles - Like Apple Reminders */
+.reminder-list {
+  margin-top: 0;
+  padding-top: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.reminder-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-left: 10px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: 2px;
+  position: relative;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.2s ease;
+  min-height: 48px;
 }
 
-.social-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: inline-flex;
+.reminder-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.reminder-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 56px;
+  right: 0;
+  height: 1px;
+  background-color: var(--divider-color);
+  transform: scaleY(0.5);
+}
+
+.reminder-item:last-child::after {
+  display: none;
+}
+
+.reminder-checkbox {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-circle);
+  margin-right: var(--spacing-md);
+  flex-shrink: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  align-self: center;
+}
+
+.reminder-item:hover .reminder-checkbox {
+  transform: scale(1.1);
+}
+
+/* Remove duplicate transforms to prevent conflicts */
+.reminder-checkbox:hover {
+  /* transform removed to prevent conflict */
+}
+
+.reminder-checkbox .social-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reminder-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-right: var(--spacing-md);
+  justify-content: center;
+  min-height: 42px;
+}
+
+.reminder-title {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 2px;
+  transition: color 0.2s ease;
+  line-height: 1.3;
+}
+
+.reminder-note {
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--border-radius-sm);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: all 0.2s ease;
 }
 
 .social-icon:hover {
@@ -134,7 +294,7 @@ h1 {
 
 /* Social icon specific styles */
 .instagram {
-  background-image: url('../images/instagram-logo-dark.jpeg');
+  background-image: url('../images/instagram-logo-dark.png');
   background-color: transparent;
 }
 
@@ -143,52 +303,305 @@ h1 {
   background-color: #ffffff;
 }
 
-.threads {
-  background-image: url('../images/threads-logo.png');
-  background-color: #ffffff;
-}
-
 /* Footer */
 footer {
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-sm);
   text-align: center;
   color: var(--text-tertiary);
   font-size: 0.875rem;
+  padding-bottom: var(--spacing-sm);
 }
 
 /* Animation */
-.hidden {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .fade-in {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.pop-in {
+  animation: popIn 0.4s ease forwards;
+}
+
+/* Typewriter effect */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid transparent;
+  width: 0;
+  animation: typing 1.5s steps(40, end) forwards;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
 /* Responsive */
 @media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  
   body {
-    padding: 40px 16px;
+    padding: 0;
+    align-items: flex-start;
+    padding-top: 20px;
   }
   
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  .statement p {
-    font-size: 1.4rem;
+  .container {
+    padding: 0 var(--spacing-sm);
   }
   
   .profile-image {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
   
-  .icon {
+  .reminder-checkbox {
     width: 28px;
     height: 28px;
   }
-} 
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Reminder Link Style */
+.reminder-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  width: 100%;
+  cursor: pointer;
+}
+
+.reminder-link:hover .reminder-title {
+  color: var(--accent-color);
+}
+
+.reminder-link:focus {
+  outline: none;
+}
+
+.reminder-link:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-color);
+  border-radius: var(--border-radius-sm);
+}
+
+/* For better specificity, keep these selectors for links */
+.reminder-link:hover .social-icon,
+.reminder-link:hover .add-icon {
+  /* transform removed to prevent conflict */
+}
+
+/* Add Item Style */
+.add-item {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.add-item:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.add-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.add-icon span {
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius-lg);
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--divider-color);
+  position: relative;
+}
+
+.modal-header h2 {
+  margin-bottom: 4px;
+  font-size: var(--font-size-title);
+}
+
+.modal-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-subtitle);
+  margin-bottom: 0;
+  position: relative;
+}
+
+.changing-text {
+  color: var(--accent-color);
+  display: inline-block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  min-width: 1px; /* Prevents layout shifts */
+}
+
+.close-button {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: var(--text-color);
+}
+
+.modal-body {
+  padding: var(--spacing-md);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: var(--font-size-small);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: var(--font-size-body);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.submit-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 12px 16px;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #0071e3;
+}
+
+/* Improve "Add New Fixation" item */
+.add-item {
+  cursor: pointer;
+}
+
+.add-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Responsive Modal */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    margin: 20px 0;
+  }
+  
+  .modal {
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+}
+
+/* Special handling for Threads icon - removed */ 

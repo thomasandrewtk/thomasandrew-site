@@ -1,92 +1,91 @@
-# Website Development Todolist
+# Apple Reminders-Style UI Redesign
 
-## Setup & Structure
-- [x] Initialize basic HTML structure
-  * Create index.html
-  * Add basic HTML5 boilerplate
-  * Set up meta tags for SEO and responsive design
+## Design Foundation
+- [x] Implement Apple Human Interface Guidelines standards
+  * Set background color to #1C1C1E (dark mode)
+  * Use proper typography hierarchy and spacing
+  * Follow Apple's layout patterns for lists and tables
 
-- [x] Create folder structure
-  * /css for stylesheets
-  * /js for JavaScript files
-  * /images for profile picture and other assets
-  * /fonts for custom fonts (if needed)
+- [x] Set up color scheme
+  * Primary text: White
+  * Secondary text/notes: #8E8E93 (R 142 G 142 B 147)
+  * Accent color: Apple blue (R 10 G 132 B 255)
 
-- [x] Setup GitHub Pages deployment
-  * Configure repository settings for GitHub Pages
+## Header Component
+- [x] Create Apple account-style header
+  * Add round profile picture on left
+  * Style "Thomas Andrew" title
+  * Add "I do a few different things..." subtitle in gray
 
-## Design Implementation
-- [x] Create basic CSS framework
-  * Implement Apple-inspired dark mode
-  * Set up color variables
-  * Create responsive layout
+## List Structure
+- [x] Implement Reminders-style list components
+  * Create section headers with proper styling
+  * Add dividers between sections
+  * Ensure proper padding and margins following HIG
 
-- [x] Implement typography
-  * Select and implement Apple-style fonts
-  * Create text styles for headings and paragraphs
+## Content Sections
+- [x] Build "My Current Fixations..." section
+  * Add section header with proper styling
+  * Create reminder item: "Im building Hypotheticals"
+    * Add note: "The party game for debating the absurd" in #8E8E93
+  * Create reminder item: "I play bass in Maple Grenade"
+    * Add note: "Catch our New Album coming soon..." in #8E8E93
+  * Place appropriate squircle icons to left of each item
 
-- [x] Design header section
-  * Add profile picture with proper styling
-  * Create intro text area
-  * Style container with Apple aesthetics
+- [x] Build "Where you can find me" section
+  * Add section header with proper styling
+  * Create items for social platforms:
+    * Instagram with squircle logo
+    * Threads with squircle logo
+    * YouTube with squircle logo
 
-- [x] Design projects section
-  * Create "Current Fixation" showcase for Hypotheticals app
-  * Design project cards/sections
-  * Implement hover effects
+## Interactive Elements
+- [x] Implement HIG-compliant interactions
+  * Add hover effect to enlarge social media icons slightly
+  * Ensure proper touch targets for mobile (44×44pt minimum)
+  * Maintain proper visual feedback for interactive elements
 
-- [x] Design social media links
-  * Create minimal social icons
-  * Implement hover animations
-  * Ensure proper spacing and alignment
+## Responsive Design
+- [x] Optimize for different screen sizes
+  * Follow Apple's responsive design patterns
+  * Adjust layout for mobile and tablet views
+  * Maintain proper spacing and typography across devices
 
-## Functionality
-- [x] Implement animations and transitions
-  * Add scroll animations
-  * Create smooth section transitions
-  * Implement Apple-style hover effects
+## Animations
+- [x] Create Apple-style animations
+  * Add typewriter loading effect for reminders text
+  * Implement subtle "pop" animation for images on load
+  * Ensure animations are subtle and enhance the experience
 
-- [x] Add JavaScript functionality
-  * Create smooth scrolling
-  * Implement any interactive elements
-  * Add dark mode toggle (optional)
+## Contact Form
+- [x] Add "Add new fixation" functionality
+  * Create modal contact form
+  * Implement changing text animation for project types
+  * Style form fields to match Apple design guidelines
 
-- [x] Make website fully responsive
-  * Test on multiple screen sizes
-  * Implement mobile-friendly navigation
-  * Ensure all elements scale properly
+## Accessibility
+- [ ] Ensure design meets accessibility standards
+  * Verify color contrast meets WCAG guidelines
+  * Add proper semantic HTML structure
+  * Implement focus states for keyboard navigation
 
-## Content
-- [x] Add profile picture
-  * Optimize image for web
-  * Create proper sizing and cropping
+## Testing
+- [ ] Test design across platforms
+  * Verify consistency across browsers
+  * Test on iOS, iPadOS, and macOS devices
+  * Check performance of animations
 
-- [x] Write personal introduction
-  * Draft "I do a lot of things..." section
-  * Review and refine copy
+## Implementation
+- [ ] Update HTML structure
+  * Create semantic markup for lists and sections
+  * Add proper ARIA attributes for accessibility
 
-- [x] Create project placeholders
-  * Add Hypotheticals app as "Current Fixation"
-  * Create placeholder cards for other projects
-  * Add relevant links
+- [ ] Update CSS styling
+  * Implement Apple SF fonts or appropriate alternatives
+  * Add animations and transitions
+  * Create squircle masks for icons
 
-- [x] Add social media links
-  * Instagram
-  * YouTube
-  * Threads
-
-## Testing & Deployment
-- [x] Test website functionality
-  * Check all links
-  * Verify responsive design
-  * Test animations and transitions
-
-- [x] Optimize for performance
-  * Compress images
-  * Minify CSS and JavaScript
-  * Improve loading times
-
-- [x] Final review and deployment
-  * Check for any issues or bugs
-  * Make final adjustments
-  * Push to GitHub Pages 
+- [ ] Add JavaScript functionality
+  * Implement loading animations
+  * Add interaction effects
+  * Ensure smooth performance 

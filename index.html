@@ -11,40 +11,142 @@
 </head>
 <body>
     <div class="container">
-        <!-- Profile Section -->
+        <!-- Apple Account Style Header -->
         <div class="profile-header">
-            <h1>Hi, my name is Thomas Andrew <img src="images/profile.jpg" alt="Thomas Andrew" class="profile-image"></h1>
+            <img src="images/profile.jpg" alt="Thomas Andrew" class="profile-image">
+            <div class="profile-info">
+                <h1>Hi, I'm Thomas Andrew <span class="wave-emoji">👋</span></h1>
+                <p class="profile-subtitle">I do a few different things...</p>
+            </div>
         </div>
 
-        <!-- Statement Lines -->
-        <div class="statement">
-            <p>I do a lot of things...</p>
+        <div class="divider"></div>
+
+        <!-- My Current Fixations Section -->
+        <div class="section">
+            <h2 class="section-title">My Current Fixations...</h2>
+            <ul class="reminder-list">
+                <li class="reminder-item">
+                    <a href="https://thomasandrewtk.github.io/hypotheticals-site/" class="reminder-link">
+                        <div class="reminder-checkbox">
+                            <img src="images/hypotheticals-icon.png" alt="Hypotheticals" class="social-icon">
+                        </div>
+                        <div class="reminder-content">
+                            <p class="reminder-title">Im building Hypotheticals</p>
+                            <p class="reminder-note">The party game for debating the absurd</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="reminder-item">
+                    <a href="https://hyperfollow.com/maplegrenade" class="reminder-link">
+                        <div class="reminder-checkbox">
+                            <img src="images/music-icon.png" alt="Music" class="social-icon">
+                        </div>
+                        <div class="reminder-content">
+                            <p class="reminder-title">I play bass in Maple Grenade</p>
+                            <p class="reminder-note">Catch our New Album coming soon...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="reminder-item">
+                    <a href="https://www.behance.net/gallery/215293641/YouTube-Thumbnail-Portfolio-2025" class="reminder-link" target="_blank" rel="noopener">
+                        <div class="reminder-checkbox">
+                            <img src="images/behance-logo.png" alt="Behance" class="social-icon">
+                        </div>
+                        <div class="reminder-content">
+                            <p class="reminder-title">I design YouTube Thumbnails</p>
+                            <p class="reminder-note">For channels over 15m subscribers</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="reminder-item">
+                    <div class="reminder-link" id="openContactForm">
+                        <div class="reminder-checkbox add-icon">
+                            <span>+</span>
+                        </div>
+                        <div class="reminder-content">
+                            <p class="reminder-title">Add a new fixation...</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
 
-        <!-- Project Statements -->
-        <div class="statement">
-            <p>I'm building Hypotheticals <a href="https://thomasandrewtk.github.io/hypotheticals-site/"><img src="images/hypotheticals-icon.png" alt="Hypotheticals App" class="icon"></a></p>
-        </div>
+        <div class="divider"></div>
 
-        <div class="statement">
-            <p>and make music <a href="https://hyperfollow.com/maplegrenade"><img src="images/music-icon.png" alt="Music" class="icon"></a></p>
-        </div>
-
-        <!-- Social Media Statement -->
-        <div class="statement">
-            <p>I also post regularly on these platforms 
-                <span class="social-icons">
-                    <a href="https://instagram.com/thomasandrewtk" class="social-icon instagram" aria-label="Instagram"></a>
-                    <a href="https://youtube.com/@thomasandrew" class="social-icon youtube" aria-label="YouTube"></a>
-                    <a href="https://threads.net/thomasandrewtk" class="social-icon threads" aria-label="Threads"></a>
-                </span>
-            </p>
+        <!-- Where You Can Find Me Section -->
+        <div class="section">
+            <h2 class="section-title">Where you can find me</h2>
+            <ul class="reminder-list">
+                <li class="reminder-item">
+                    <a href="https://instagram.com/thomasandrewtk" class="reminder-link" target="_blank" rel="noopener">
+                        <div class="reminder-checkbox">
+                            <img src="images/instagram-logo-dark.png" alt="Instagram" class="social-icon">
+                        </div>
+                        <div class="reminder-content">
+                            <p class="reminder-title">Instagram</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="reminder-item">
+                    <a href="https://threads.net/thomasandrewtk" class="reminder-link" target="_blank" rel="noopener">
+                        <div class="reminder-checkbox">
+                            <img src="images/threads-logo.png" alt="Threads" class="social-icon">
+                        </div>
+                        <div class="reminder-content">
+                            <p class="reminder-title">Threads</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="reminder-item">
+                    <a href="https://youtube.com/@thomasandrew" class="reminder-link" target="_blank" rel="noopener">
+                        <div class="reminder-checkbox">
+                            <img src="images/youtube-logo.png" alt="YouTube" class="social-icon">
+                        </div>
+                        <div class="reminder-content">
+                            <p class="reminder-title">YouTube</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <!-- Footer -->
         <footer>
             <p>&copy; <span id="current-year"></span> Thomas Andrew</p>
         </footer>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add new Fixation</h2>
+                <p class="modal-subtitle">Hire me for your <span id="projectType" class="changing-text">Website</span> project</p>
+                <button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
