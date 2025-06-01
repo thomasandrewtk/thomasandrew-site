@@ -123,6 +123,9 @@ h1 {
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .social-icon:hover {
@@ -131,16 +134,18 @@ h1 {
 
 /* Social icon specific styles */
 .instagram {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-image: url('../images/instagram-logo.png');
+  background-color: #ffffff;
 }
 
 .youtube {
-  background-color: #FF0000;
+  background-image: url('../images/youtube-logo.png');
+  background-color: #ffffff;
 }
 
 .threads {
-  background-color: #000000;
-  border: 1px solid var(--text-tertiary);
+  background-image: url('../images/threads-logo.png');
+  background-color: #ffffff;
 }
 
 /* Footer */
