@@ -1,6 +1,6 @@
 /* 
  * Thomas Andrew - Personal Website
- * Inspired by chrisraroque.com
+ * Styled after chrisraroque.com
  */
 
 /* CSS Variables */
@@ -11,11 +11,10 @@
   --text-tertiary: rgba(255, 255, 255, 0.5);
   --accent-color: #0a84ff;
   --content-max-width: 700px;
-  --spacing-sm: 10px;
+  --spacing-sm: 8px;
   --spacing-md: 20px;
   --spacing-lg: 40px;
-  --spacing-xl: 80px;
-  --border-radius: 8px;
+  --spacing-xl: 60px;
 }
 
 /* Base Styles */
@@ -27,7 +26,6 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -35,10 +33,9 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.5;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: 60px 20px;
 }
 
 a {
@@ -55,84 +52,71 @@ a:hover {
 .container {
   max-width: var(--content-max-width);
   margin: 0 auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Typography */
-h1, h2, h3, p {
-  margin-bottom: var(--spacing-md);
+/* Profile Header */
+.profile-header {
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-h2 {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   font-weight: 500;
-  margin-top: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-h3 {
-  font-size: 1.5rem;
-  font-weight: 500;
-}
-
-p {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-}
-
-/* Profile */
 .profile-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: var(--spacing-sm);
-}
-
-.intro-text {
-  font-size: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto var(--spacing-lg);
-}
-
-/* Projects */
-.project {
-  margin-bottom: var(--spacing-lg);
-}
-
-.project-icon {
   width: 40px;
   height: 40px;
-  margin-bottom: var(--spacing-sm);
-  border-radius: var(--border-radius);
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 10px;
 }
 
-.project-description {
-  max-width: 500px;
-  margin: 0 auto var(--spacing-md);
+/* Statements */
+.statement {
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
 }
 
-/* Social Links */
-.social-links {
-  margin-top: var(--spacing-xl);
+.statement p {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Social Icons */
 .social-icons {
   display: flex;
-  justify-content: center;
-  gap: var(--spacing-md);
-  margin: var(--spacing-md) 0;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
 }
 
 .social-icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
@@ -140,13 +124,6 @@ p {
 
 .social-icon:hover {
   transform: scale(1.1);
-}
-
-.icon-label {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-  margin-top: var(--spacing-sm);
 }
 
 /* Social icon specific styles */
@@ -163,20 +140,17 @@ p {
   border: 1px solid var(--text-tertiary);
 }
 
-/* Action links */
-.action-links {
+/* Footer Links */
+.footer-links {
   margin-top: var(--spacing-xl);
-}
-
-.action-link {
-  display: block;
-  margin-bottom: var(--spacing-sm);
+  text-align: center;
   font-size: 1rem;
 }
 
 /* Footer */
 footer {
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-md);
+  text-align: center;
   color: var(--text-tertiary);
   font-size: 0.875rem;
 }
@@ -195,24 +169,25 @@ footer {
 
 /* Responsive */
 @media (max-width: 600px) {
-  :root {
-    --spacing-lg: 30px;
-    --spacing-xl: 60px;
-  }
-  
   body {
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: 40px 16px;
   }
   
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
   
-  p {
-    font-size: 1.125rem;
+  .statement p {
+    font-size: 1.4rem;
   }
   
-  .intro-text {
-    font-size: 1.25rem;
+  .profile-image {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .icon {
+    width: 28px;
+    height: 28px;
   }
 } 
