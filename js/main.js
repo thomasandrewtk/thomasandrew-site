@@ -63,6 +63,7 @@ function setupContactModal() {
   const openButton = document.getElementById('openContactForm');
   const closeButton = document.querySelector('.close-button');
   const form = document.getElementById('contactForm');
+  const formStatus = document.getElementById('form-status');
   
   // Open modal
   openButton.addEventListener('click', () => {
@@ -85,24 +86,64 @@ function setupContactModal() {
   });
   
   // Handle form submission
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     
-    // Here you would typically handle the form submission with AJAX
-    // For now, we'll just show a success message and close the modal
-    alert('Thanks for your message! I\'ll get back to you soon.');
+    // Show loading state
+    const submitButton = form.querySelector('.submit-button');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
     
-    // Reset form and close modal
-    form.reset();
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Allow scrolling
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        // Success
+        formStatus.textContent = 'Thanks for your message! I\'ll get back to you soon.';
+        formStatus.style.color = '#34C759'; // Apple success green
+        form.reset();
+        
+        // Close modal after success (delay for user to see message)
+        setTimeout(() => {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Allow scrolling
+          formStatus.textContent = ''; // Clear status message for next time
+        }, 2000);
+      } else {
+        // Server error
+        const data = await response.json();
+        if (Object.hasOwn(data, 'errors')) {
+          formStatus.textContent = data.errors.map(error => error.message).join(', ');
+        } else {
+          formStatus.textContent = 'Something went wrong. Please try again.';
+        }
+        formStatus.style.color = '#FF3B30'; // Apple error red
+      }
+    } catch (error) {
+      // Network error
+      formStatus.textContent = 'Connection error. Please check your internet and try again.';
+      formStatus.style.color = '#FF3B30'; // Apple error red
+    } finally {
+      // Reset button
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+    }
   });
 }
 
 // Setup Changing Text Animation
 function setupChangingText() {
-  const projectTypes = ['Website', 'YouTube', 'Music', 'Design', 'App', 'Brand'];
+  const projectTypes = ['Website', 'YouTube', 'Music', 'Design', 'Brand'];
   const changingTextElement = document.getElementById('projectType');
+  const hiddenProjectTypeField = document.getElementById('hiddenProjectType');
   let currentIndex = 0;
   
   // Create transition function with better animation
@@ -114,7 +155,13 @@ function setupChangingText() {
     // After fade out, change text and fade in
     setTimeout(() => {
       currentIndex = (currentIndex + 1) % projectTypes.length;
-      changingTextElement.textContent = projectTypes[currentIndex];
+      const newType = projectTypes[currentIndex];
+      changingTextElement.textContent = newType;
+      
+      // Update hidden field for form submission
+      if (hiddenProjectTypeField) {
+        hiddenProjectTypeField.value = newType;
+      }
       
       // Trigger reflow for smooth animation
       void changingTextElement.offsetWidth;
