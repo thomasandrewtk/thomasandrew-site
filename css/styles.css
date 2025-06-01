@@ -1,32 +1,23 @@
 /* 
  * Thomas Andrew - Personal Website
- * Apple-inspired Dark Mode Design
+ * Apple-inspired Dark Mode Design - Simplified
  */
 
 /* CSS Variables */
 :root {
   --apple-bg-primary: #000000;
-  --apple-bg-secondary: #1c1c1e;
-  --apple-bg-tertiary: #2c2c2e;
+  --apple-bg-secondary: #111111;
   --apple-text-primary: #ffffff;
   --apple-text-secondary: rgba(255, 255, 255, 0.8);
   --apple-text-tertiary: rgba(255, 255, 255, 0.5);
   --apple-accent: #0a84ff;
-  --apple-success: #30d158;
-  --apple-warning: #ffd60a;
-  --apple-error: #ff453a;
-  --apple-card-radius: 12px;
-  --apple-button-radius: 8px;
+  --apple-card-radius: 8px;
+  --apple-button-radius: 6px;
   --apple-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --apple-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-  --content-max-width: 1200px;
-  --header-height: 80px;
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
+  --content-max-width: 800px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
-  --spacing-xl: 32px;
-  --spacing-xxl: 48px;
+  --spacing-xl: 40px;
 }
 
 /* Base Styles */
@@ -49,6 +40,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: var(--spacing-xl) var(--spacing-lg);
 }
 
 a {
@@ -71,151 +63,117 @@ header, main, footer {
   width: 100%;
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
 }
 
 main {
-  min-height: calc(100vh - var(--header-height) - 60px);
+  margin-top: var(--spacing-xl);
 }
 
 section {
-  margin: var(--spacing-xxl) 0;
+  margin-bottom: var(--spacing-xl);
 }
 
-/* Header Styles */
-header {
-  padding-top: var(--spacing-xl);
-}
-
+/* Header Styles - Simplified */
 .profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: var(--spacing-xxl);
 }
 
 .profile-image {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: var(--spacing-lg);
-  border: 2px solid var(--apple-bg-tertiary);
-  box-shadow: var(--apple-shadow);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid var(--apple-text-tertiary);
 }
 
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 600;
   margin-bottom: var(--spacing-md);
-  background: linear-gradient(90deg, var(--apple-accent), var(--apple-success));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--apple-text-primary);
 }
 
 .intro-text {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--apple-text-secondary);
-  max-width: 600px;
+  max-width: 500px;
 }
 
-/* Current Fixation */
-.current-fixation {
-  background-color: var(--apple-bg-secondary);
-  border-radius: var(--apple-card-radius);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
-  box-shadow: var(--apple-shadow);
-}
-
-.current-fixation h2 {
+/* Projects Styling - Simplified */
+h2 {
+  font-size: 1.5rem;
   margin-bottom: var(--spacing-lg);
-  color: var(--apple-text-primary);
-  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.current-fixation, .projects {
+  padding-top: var(--spacing-lg);
 }
 
 .project-card {
+  background-color: var(--apple-bg-secondary);
+  border-radius: var(--apple-card-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--spacing-lg);
-  background-color: var(--apple-bg-tertiary);
-  border-radius: var(--apple-card-radius);
-  transition: var(--apple-transition);
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--apple-shadow);
 }
 
 .project-icon {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin-bottom: var(--spacing-md);
-  border-radius: 20px;
+  border-radius: 12px;
 }
 
 .project-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-sm);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .project-card p {
   color: var(--apple-text-secondary);
   margin-bottom: var(--spacing-lg);
+  font-size: 0.95rem;
 }
 
 .apple-button {
   display: inline-block;
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: 8px 16px;
   background-color: var(--apple-accent);
   color: white;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 0.9rem;
   border-radius: var(--apple-button-radius);
   transition: var(--apple-transition);
 }
 
 .apple-button:hover {
   opacity: 0.9;
-  transform: scale(1.05);
 }
 
-/* Projects Section */
-.projects h2 {
-  margin-bottom: var(--spacing-lg);
-  font-size: 1.75rem;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--spacing-lg);
-}
-
-/* Social Links */
-.social-links h2 {
-  margin-bottom: var(--spacing-lg);
-  font-size: 1.75rem;
-}
-
+/* Social Links - Simplified */
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: var(--apple-bg-tertiary);
+  background-color: var(--apple-bg-secondary);
   transition: var(--apple-transition);
   position: relative;
 }
@@ -226,11 +184,11 @@ h1 {
 
 .icon-label {
   position: absolute;
-  bottom: -30px;
+  bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--apple-text-tertiary);
   opacity: 0;
   transition: var(--apple-transition);
@@ -258,16 +216,16 @@ h1 {
 footer {
   text-align: center;
   padding: var(--spacing-lg) 0;
-  margin-top: var(--spacing-xxl);
   color: var(--apple-text-tertiary);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  margin-top: var(--spacing-xl);
 }
 
 /* Animation Styles */
 .hidden {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-in {
@@ -275,61 +233,22 @@ footer {
   transform: translateY(0);
 }
 
-/* Apple-style loading animation */
-body.loading {
-  opacity: 0;
-}
-
-body.loaded {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-/* Hover animations for links and buttons */
-a, button {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-a:active, button:active {
-  transform: scale(0.95);
-}
-
 /* Responsive Design */
-@media (max-width: 768px) {
-  :root {
-    --spacing-xl: 24px;
-    --spacing-xxl: 32px;
+@media (max-width: 480px) {
+  body {
+    padding: var(--spacing-lg) var(--spacing-md);
   }
   
   h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   
   .intro-text {
-    font-size: 1.25rem;
-  }
-  
-  .social-icons {
-    gap: var(--spacing-lg);
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.75rem;
+    font-size: 1rem;
   }
   
   .profile-image {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .social-icons {
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 100px;
+    height: 100px;
   }
 } 
