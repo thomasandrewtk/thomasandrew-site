@@ -138,8 +138,9 @@ h1 {
   background-color: #FF0000;
 }
 
-.twitter {
-  background-color: #1DA1F2;
+.threads {
+  background-color: #000000;
+  border: 1px solid var(--text-tertiary);
 }
 
 /* Footer */
