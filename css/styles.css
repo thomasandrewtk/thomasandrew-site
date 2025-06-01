@@ -1,23 +1,21 @@
 /* 
  * Thomas Andrew - Personal Website
- * Apple-inspired Dark Mode Design - Simplified
+ * Inspired by chrisraroque.com
  */
 
 /* CSS Variables */
 :root {
-  --apple-bg-primary: #000000;
-  --apple-bg-secondary: #111111;
-  --apple-text-primary: #ffffff;
-  --apple-text-secondary: rgba(255, 255, 255, 0.8);
-  --apple-text-tertiary: rgba(255, 255, 255, 0.5);
-  --apple-accent: #0a84ff;
-  --apple-card-radius: 8px;
-  --apple-button-radius: 6px;
-  --apple-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --content-max-width: 800px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 40px;
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+  --accent-color: #0a84ff;
+  --content-max-width: 700px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 40px;
+  --spacing-xl: 80px;
+  --border-radius: 8px;
 }
 
 /* Base Styles */
@@ -34,148 +32,110 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: var(--apple-bg-primary);
-  color: var(--apple-text-primary);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   line-height: 1.5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-md);
 }
 
 a {
-  color: var(--apple-accent);
+  color: var(--accent-color);
   text-decoration: none;
-  transition: var(--apple-transition);
+  transition: opacity 0.2s ease;
 }
 
 a:hover {
   opacity: 0.8;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 /* Layout */
-header, main, footer {
-  width: 100%;
+.container {
   max-width: var(--content-max-width);
   margin: 0 auto;
-}
-
-main {
-  margin-top: var(--spacing-xl);
-}
-
-section {
-  margin-bottom: var(--spacing-xl);
-}
-
-/* Header Styles - Simplified */
-.profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
-.profile-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+/* Typography */
+h1, h2, h3, p {
   margin-bottom: var(--spacing-md);
-  border: 1px solid var(--apple-text-tertiary);
 }
 
 h1 {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: var(--spacing-md);
-  color: var(--apple-text-primary);
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-top: var(--spacing-lg);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+/* Profile */
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--spacing-sm);
 }
 
 .intro-text {
-  font-size: 1.2rem;
-  color: var(--apple-text-secondary);
-  max-width: 500px;
-}
-
-/* Projects Styling - Simplified */
-h2 {
   font-size: 1.5rem;
-  margin-bottom: var(--spacing-lg);
-  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
 }
 
-.current-fixation, .projects {
-  padding-top: var(--spacing-lg);
-}
-
-.project-card {
-  background-color: var(--apple-bg-secondary);
-  border-radius: var(--apple-card-radius);
-  padding: var(--spacing-lg);
+/* Projects */
+.project {
   margin-bottom: var(--spacing-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 .project-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: var(--spacing-md);
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--spacing-sm);
+  border-radius: var(--border-radius);
 }
 
-.project-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: var(--spacing-md);
+.project-description {
+  max-width: 500px;
+  margin: 0 auto var(--spacing-md);
 }
 
-.project-card p {
-  color: var(--apple-text-secondary);
-  margin-bottom: var(--spacing-lg);
-  font-size: 0.95rem;
+/* Social Links */
+.social-links {
+  margin-top: var(--spacing-xl);
 }
 
-.apple-button {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: var(--apple-accent);
-  color: white;
-  font-weight: 500;
-  font-size: 0.9rem;
-  border-radius: var(--apple-button-radius);
-  transition: var(--apple-transition);
-}
-
-.apple-button:hover {
-  opacity: 0.9;
-}
-
-/* Social Links - Simplified */
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-md);
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
 }
 
 .social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--apple-bg-secondary);
-  transition: var(--apple-transition);
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
 }
 
 .social-icon:hover {
@@ -183,19 +143,10 @@ h2 {
 }
 
 .icon-label {
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 0.8rem;
-  color: var(--apple-text-tertiary);
-  opacity: 0;
-  transition: var(--apple-transition);
-}
-
-.social-icon:hover .icon-label {
-  opacity: 1;
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-top: var(--spacing-sm);
 }
 
 /* Social icon specific styles */
@@ -209,23 +160,32 @@ h2 {
 
 .threads {
   background-color: #000000;
-  border: 1px solid var(--apple-text-tertiary);
+  border: 1px solid var(--text-tertiary);
+}
+
+/* Action links */
+.action-links {
+  margin-top: var(--spacing-xl);
+}
+
+.action-link {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1rem;
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: var(--spacing-lg) 0;
-  color: var(--apple-text-tertiary);
-  font-size: 0.8rem;
   margin-top: var(--spacing-xl);
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
 }
 
-/* Animation Styles */
+/* Animation */
 .hidden {
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .fade-in {
@@ -233,22 +193,26 @@ footer {
   transform: translateY(0);
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
+/* Responsive */
+@media (max-width: 600px) {
+  :root {
+    --spacing-lg: 30px;
+    --spacing-xl: 60px;
+  }
+  
   body {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-sm);
   }
   
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.75rem;
+  }
+  
+  p {
+    font-size: 1.125rem;
   }
   
   .intro-text {
-    font-size: 1rem;
-  }
-  
-  .profile-image {
-    width: 100px;
-    height: 100px;
+    font-size: 1.25rem;
   }
 } 

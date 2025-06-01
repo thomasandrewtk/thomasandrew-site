@@ -10,37 +10,31 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="profile-container">
-            <img src="images/profile.jpg" alt="Thomas Andrew" class="profile-image">
-            <h1>Thomas Andrew</h1>
-            <p class="intro-text">I do a lot of things...</p>
+    <div class="container">
+        <!-- Profile Section -->
+        <img src="images/profile.jpg" alt="Thomas Andrew" class="profile-image">
+        <h1>Hi, my name is Thomas Andrew</h1>
+        <p class="intro-text">I do a lot of things...</p>
+
+        <!-- Current Fixation -->
+        <div class="project">
+            <img src="images/hypotheticals-icon.png" alt="Hypotheticals App" class="project-icon">
+            <h3>Hypotheticals</h3>
+            <p class="project-description">An app that explores alternative scenarios and thought experiments.</p>
+            <a href="https://thomasandrewtk.github.io/hypotheticals-site/" class="action-link">Learn More</a>
         </div>
-    </header>
 
-    <main>
-        <section class="current-fixation">
-            <h2>Current Fixation</h2>
-            <div class="project-card">
-                <img src="images/hypotheticals-icon.png" alt="Hypotheticals App" class="project-icon">
-                <h3>Hypotheticals</h3>
-                <p>An app that explores alternative scenarios and thought experiments.</p>
-                <a href="https://github.com/thomasandrewtk/hypotheticals-app" class="apple-button">Learn More</a>
-            </div>
-        </section>
+        <!-- Music Project -->
+        <div class="project">
+            <img src="images/music-icon.png" alt="Music" class="project-icon">
+            <h3>Music</h3>
+            <p class="project-description">Creating sounds that resonate.</p>
+            <a href="#" class="action-link">Listen</a>
+        </div>
 
-        <section class="projects">
-            <h2>Also Working On</h2>
-            <div class="project-card">
-                <img src="images/music-icon.png" alt="Music" class="project-icon">
-                <h3>Music</h3>
-                <p>Creating sounds that resonate.</p>
-                <a href="#" class="apple-button">Listen</a>
-            </div>
-        </section>
-
-        <section class="social-links">
-            <h2>Connect</h2>
+        <!-- Social Media -->
+        <div class="social-links">
+            <h2>I also post regularly on these platforms</h2>
             <div class="social-icons">
                 <a href="https://instagram.com/" class="social-icon instagram" aria-label="Instagram">
                     <span class="icon-label">Instagram</span>
@@ -52,12 +46,18 @@
                     <span class="icon-label">Threads</span>
                 </a>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <footer>
-        <p>&copy; <span id="current-year"></span> Thomas Andrew</p>
-    </footer>
+        <!-- Action Links -->
+        <div class="action-links">
+            <a href="#" class="action-link">Want to say hi? Click here.</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; <span id="current-year"></span> Thomas Andrew</p>
+        </footer>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
