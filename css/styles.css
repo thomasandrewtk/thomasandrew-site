@@ -134,8 +134,8 @@ h1 {
 
 /* Social icon specific styles */
 .instagram {
-  background-image: url('../images/instagram-logo.png');
-  background-color: #ffffff;
+  background-image: url('../images/instagram-logo-dark.jpeg');
+  background-color: transparent;
 }
 
 .youtube {
